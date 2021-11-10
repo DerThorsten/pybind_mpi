@@ -14,7 +14,7 @@ include_directories(${MPI_INCLUDE_PATH})
 
 add_subdirectory(pybind11)
 pybind11_add_module(mpi_lib mpi_lib.cpp)
-target_link_libraries(mpi_lib PRIVATE mpi)
+target_link_libraries(mpi_lib PRIVATE MPI::MPI_CXX)
 if(OpenMP_CXX_FOUND)
   target_link_libraries(mpi_lib PUBLIC OpenMP::OpenMP_CXX)
 else()
